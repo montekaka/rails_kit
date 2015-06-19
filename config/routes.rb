@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pins
+
   devise_ios_rails_for :users
 
   devise_scope :user do
