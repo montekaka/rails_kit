@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable
+         #, :omniauth_providers => [:facebook]
   include DeviseIosRails::OAuth
   has_many :pins
 end
