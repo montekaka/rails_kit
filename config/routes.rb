@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :pins
 
-  devise_ios_rails_for :users
+  devise_ios_rails_for :users, controllers:{omniauth_callbacks: "omniauth_callbacks"}
 
-  devise_scope :user do
-    post 'user/auth/facebook', to: 'devise_ios_rails/oauth#facebook'
-  end
+  # devise_scope :user do
+  #   post 'auth/facebook', to: 'devise_ios_rails/oauth#facebook', controllers:{omniauth_callbacks: "omniauth_callbacks"}
+  # end
   root "pins#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
