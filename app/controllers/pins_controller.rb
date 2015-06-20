@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   acts_as_token_authentication_handler_for User
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authentication_user!, except: [:index, :show]
+  #before_action :authentication_user!, except: [:index, :show]
 
   respond_to :html
 
