@@ -1,25 +1,29 @@
-<h1>Listing pins</h1>
+<% if  user_signed_in?  %>
+  <h1>Listing pins</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pins.each do |pin| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= pin.description %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @pins.each do |pin| %>
+        <tr>
+          <td><%= pin.description %></td>
+          <td><%= link_to 'Show', pin %></td>
+          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+          <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Pin', new_pin_path %>
+  <br>
+
+  <%= link_to 'New Pin', new_pin_path %>
+<% else %>  
+  <%= render 'pages/home'%>
+<% end %>

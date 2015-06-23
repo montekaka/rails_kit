@@ -1,28 +1,61 @@
-== README
+##########################################
+############ Create a user  ##############
+##########################################
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+curl \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{ "user": { "email": "aa@aa.com", "password": "11111111" } }' \
+http://localhost:3000/users
 
-Things you may want to cover:
+curl \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{ "user": { "email": "aa@aa.com", "password": "11111111" } }' \
+https://bs-ios-login.herokuapp.com/users
 
-* Ruby version
+------------------------------------------
+---------------- response ---------------- 
+------------------------------------------
+{
+  "id": 7,
+  "email": "aa@aa.com",
+  "created_at": "2015-06-21T01:58:30.348Z",
+  "updated_at": "2015-06-21T02:00:07.526Z",
+  "authentication_token": "QEUUjf74fgML7JdiYXHs",
+  "uid": null,
+  "provider": null,
+  "oauth_token": null
+}
 
-* System dependencies
+##########################################
+############ login an user  ##############
+##########################################
 
-* Configuration
+curl \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-X POST -d '{ "user": { "email": "aa@aa.com", "password": "11111111" } }' \
+http://localhost:3000/users/sign_in
 
-* Database creation
+curl \
+-H 'Accept: application/json' \
+-H 'Content-Type: application/json' \
+-X POST -d '{ "user": { "email": "aa@aa.com", "password": "11111111" } }' \
+https://bs-ios-login.herokuapp.com/users/sign_in
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+------------------------------------------
+---------------- response ---------------- 
+------------------------------------------
+{
+  "id": 7,
+  "email": "aa@aa.com",
+  "created_at": "2015-06-21T01:58:30.348Z",
+  "updated_at": "2015-06-21T02:00:07.526Z",
+  "authentication_token": "QEUUjf74fgML7JdiYXHs",
+  "uid": null,
+  "provider": null,
+  "oauth_token": null
+}
