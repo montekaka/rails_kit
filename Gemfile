@@ -7,6 +7,10 @@ gem 'rails', '4.1.0'
 group :development, :test do
 	gem 'sqlite3'
 end
+
+# require by the theme
+gem 'font-awesome-rails', '4.3.0.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
