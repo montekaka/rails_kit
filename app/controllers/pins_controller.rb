@@ -6,7 +6,7 @@ class PinsController < ApplicationController
 
   respond_to :html
 
-  def index
+  def index    
     if current_user.nil?
     else
       @pins = current_user.pins
