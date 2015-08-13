@@ -83,14 +83,14 @@ Rails.application.configure do
 
   # required for heroku
   # note to set this to your actual host
-  config.action_mailer.default_url_options = { host: 'bs-ios-login.herokuapp.com' }
+  ofig.action_mailer.default_url_options = { host: 'bs-ios-login.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
+      :address        => 'smtp.mandrillapp.com',
+      :port           => 587, # ports 587 and 2525 are also supported with STARTTLS
       :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
+      :user_name => "castsquare@gmail.com",
+      :password  => "5BylgnBRdFfb51fOzO6aTQ", # SMTP password is any valid API key
       :domain         => 'heroku.com',
       :enable_starttls_auto => true
   }

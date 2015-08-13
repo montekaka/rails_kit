@@ -39,12 +39,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+      :address        => 'smtp.mandrillapp.com',
+      :port           => 587, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => "castsquare@gmail.com",       
+      :password  => "5BylgnBRdFfb51fOzO6aTQ", # SMTP password is any valid API key
+      #:user_name      => ENV['SENDGRID_USERNAME'],
+      #:password       => ENV['SENDGRID_PASSWORD'],      
+      :domain         => 'localhost:3000',
+      :authentication => 'plain', # Mandrill supports 'plain' or 'login'
   }  
 end

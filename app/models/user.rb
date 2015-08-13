@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  # Instruction of confirmable
+  # https://github.com/plataformatec/devise/wiki/How-To:-Add-:confirmable-to-Users
   acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, 
+         :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
   include DeviseIosRails::OAuth
 
