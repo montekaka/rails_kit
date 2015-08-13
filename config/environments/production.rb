@@ -83,7 +83,7 @@ Rails.application.configure do
 
   # required for heroku
   # note to set this to your actual host
-  ofig.action_mailer.default_url_options = { host: 'bs-ios-login.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'bs-ios-login.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.mandrillapp.com',
